@@ -1,0 +1,85 @@
+//Objeto 
+const estudiante ={
+    nombre: "Juan",
+    edad: 30,
+    estatura: 1.75
+}
+//console.log("------Objeto estudiante---");
+//console.log(estudiante.nombre);
+//console.log(estudiante.edad);
+//console.log(estudiante.estatura);
+//console.log(`Hola ${estudiante.nombre}, tu edad es ${estudiante.edad} y tu estatura es ${estudiante.estatura}`);
+//console.log("--------------------------")
+//
+
+// variables constantes 
+//const nombre = "Juan";
+//const edad = 30;
+//const estatura = 1.75;
+
+//console.log("Hola",nombre);
+//console.log(edad);
+//console.log(estatura);
+
+//variables let
+let numero1= 2.5
+let numero2= 3.5
+let segundonombre = "Pedro"
+let edad2 = 26
+let bool = true
+let suma = numero1 + numero2
+
+//console.log("La suma es: ",numero1, "+", numero2, "=",  suma);
+//console.log("Segundo nombre",segundonombre,"\n","Edad",edad2,"\n","Booleano",bool);
+
+
+
+//Funciones
+console.log("------Funciones---");
+function saludar(nombre,){
+    console.log(`Hola ${nombre}`);
+    return `Hola ${nombre}`;
+}
+
+saludar('Maximilianao');
+//saludar('Ana');
+//saludar('Pedro');
+//saludar('Mariana');
+
+const saludar2 = (nombre) => {
+    console.log(`Hola ${nombre}`);
+    return `Hola ${nombre}`;
+}
+
+saludar2('Funcion2');
+
+const saludar3 = (nombre) => console.log(`Hola ${nombre}`);
+
+saludar3('Funcion3');
+
+//Funcion de sumar
+const sumar = (a,b) => a + b;
+console.log(sumar(5,10));
+
+
+//funcion de perid pizza
+function pedirPizza(sabor, avisar){
+    console.log(`Preparando pizza de ${sabor}`);
+    avisar(sabor);
+}
+
+//cuando llama el cliente
+pedirPizza(`peperoni`, (sabor) => {
+    console.log(`Listo su pizza de ${sabor}`);
+});
+
+//exprese funciona igual
+productos.push({ id: 5, nombre: 'TarjetaVideo', precio: 300})
+
+const encontrado = productos.find((productos) => productos.id === 5);
+console.log(encontrado.nombre,encontrado.precio);
+
+const sinMouse = productos.filter((p) => p.id !== 1);
+console.log(sinMouse.length);
+
+console.log(productos)

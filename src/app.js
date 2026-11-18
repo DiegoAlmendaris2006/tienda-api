@@ -2,13 +2,20 @@
 const express = require('express');
 //Llamar a las rutas de productos
 const routesProductos = require('./routes/routerProducto.js');
- 
+
+const routesCategoria = require('./routes/routerCategoria.js')
+const routesAuth = require('./routes/routerAuth.js');
 //Crear una aplicacion de express
 const app = express();
 app.use(express.json());
  
 //Rutas de productos
 app.use('/productos', routesProductos);
+
+app.use('/categorias', routesCategoria);
+
+//Rutas de autenticacion
+app.use('/auth', routesAuth);
  
 //Manejo de errores
 app.use((err, req, res, next) => {
