@@ -9,7 +9,7 @@ const textoValido = t => typeof t === 'string' && t.trim() !== '';
 
 //Firmar el token con las variables del .env
 const generarToken = cliente => jwt.sign(
-    { id: cliente.id, email: cliente.email },
+    { id: cliente.id, rol: cliente.rol },
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_EXPIRES }
 );
@@ -19,6 +19,9 @@ async function registro(req, res) {
     const { nombre, email, password } = req.body || {};
     if (!textoValido(nombre) || !textoValido(email) || !textoValido(password)) {
         return res.status(400).json({ error: 'Nombre, email y password son obligatorios' });
+    }
+    if (password.length < 8) {
+        return res.status(400).json({ error: 'La clave debe tener al menos 8 caracteres' });
     }
     try {
         const existe = await Cliente.buscarPorEmail(email);
@@ -54,7 +57,7 @@ async function login(req, res) {
 // GET /auth/perfil (protegido con token)
 async function perfil(req, res) {
     try {
-        const cliente = await Cliente.buscarPorId(req.cliente.id);
+        const cliente = await Cliente.obtenerClientePorId(req.usuario.id);
         if (!cliente) {
             return res.status(404).json({ error: 'Cliente no encontrado' });
         }

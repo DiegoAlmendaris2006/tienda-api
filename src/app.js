@@ -4,7 +4,7 @@ const express = require('express');
 const routesProductos = require('./routes/routerProducto.js');
 
 const routesCategoria = require('./routes/routerCategoria.js')
-const routesAuth = require('./routes/routerAuth.js');
+const routesAuth = require('./routes/routesAuth.js');
 //Crear una aplicacion de express
 const app = express();
 app.use(express.json());
